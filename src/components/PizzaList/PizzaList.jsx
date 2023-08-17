@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 
 function PizzaList() {
 
-    const [pizzaList, setPizzaList] = useState([])
+    const [pizzaList, setPizzaList] = useState([]);
 
-    useEffect(() => { fetchPizzas() }, [])
+    const dispatch = useDispatch();
+
+    useEffect(() => { fetchPizzas() }, []);
 
     const fetchPizzas = () => {
         axios.get('/api/pizza')
@@ -22,11 +25,16 @@ function PizzaList() {
             {pizzaList.map((pizza, index) => 
                 <>
                     <p key={index}>{pizza.name},{pizza.description}, {pizza.price}</p>
-                    <button>Add to Cart</button> <button>Remove from Cart</button>
+                    <button onClick={()=>dispatch({type: 'ADD_PIZZA', payload: {pizza}})}>Add to Cart</button> <button onClick={()=>dispatch({type: 'REMOVE_PIZZA', payload: {pizza}})}>Remove from Cart</button>
                 </>
             )}
+
+            <div>
+                <button>Next ➡️</button>
+            </div>
         </div>
 
+                
     )
 }
 
