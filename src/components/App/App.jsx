@@ -3,13 +3,10 @@ import axios from 'axios';
 import './App.css';
 import { useState, useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
+import CustomerForm from '../CustomerForm/CustomerForm';
 
 
 function App() {
-
-  
-
-
 
   return (
     <div className='App'>
@@ -22,8 +19,10 @@ function App() {
 
       <PizzaList />
 
+      <CustomerForm />
     </div>
   );
 }
 
 export default App;
+
