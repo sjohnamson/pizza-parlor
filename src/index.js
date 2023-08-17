@@ -6,9 +6,21 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+const cart = (state = [], action) => {
+    if(action.type === "REMOVE_PIZZA"){
+        console.log("cart has revieced REMOVE_PIZZA payload")
+        return state.filter(state => state !== action.payload);
+    }
+    if(action.type === "ADD_PIZZA"){
+        return [...state, action.payload]
+    }
+    return state
+}
+
 
 const reduxStore = createStore(
     combineReducers({
+        cart
         // reducers go here
     }),
     applyMiddleware(logger)
