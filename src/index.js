@@ -15,6 +15,9 @@ const cart = (state = [], action) => {
         console.log("cart has recieved ADD_PIZZA payload", action.payload)
         return [...state, action.payload]
     }
+    if(action.type === 'CLEAR_ORDER'){
+        return []
+    }
     return state
 }
 
