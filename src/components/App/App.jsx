@@ -1,9 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import {useState, useEffect} from 'react';
 
 function App() {
+const [pizzaList, setPizzaList] = useState([]);
 
+useEffect(() => {fetchPizzas()});
+
+const fetchPizzas = () => {
+  axios.get('/api/pizza')
+  .then(response => {
+    setPizzaList(response.data)
+    console.log('get axios', response.data)
+  })
+}
   return (
     <div className='App'>
       <header className='App-header'>
