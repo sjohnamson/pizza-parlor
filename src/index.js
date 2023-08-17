@@ -18,10 +18,20 @@ const cart = (state = [], action) => {
     return state
 }
 
+const cartTotal = (state = 0, action) => {
+    if (action.type === "ADD_PRICE") {
+        return state + action.payload
+    }
+    if (action.type === "REMOVE_PRICE") {
+        return state - action.payload
+    }
+}
+
 
 const reduxStore = createStore(
     combineReducers({
-        cart
+        cart,
+        cartTotal
         // reducers go here
     }),
     applyMiddleware(logger)
