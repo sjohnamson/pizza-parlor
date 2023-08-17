@@ -21,26 +21,18 @@ function PizzaList() {
 
     const addPizza = (pizza) => {
         dispatch({ type: 'ADD_COST', payload: pizza.price });
-        dispatch({ type: 'ADD_PIZZA', payload: pizza})
+        dispatch({ type: 'ADD_PIZZA', payload: pizza })
     }
 
     const removePizza = (pizza) => {
         dispatch({ type: 'REMOVE_COST', payload: pizza.price });
-        dispatch({ type: 'REMOVE_PIZZA', payload: pizza})
+        dispatch({ type: 'REMOVE_PIZZA', payload: pizza })
     }
 
     return (
         <>
             <h1>Select Your Pizzas!</h1>
             <hr />
-            <div>
-                {pizzaList.map((pizza, index) =>
-                    <>
-                        <p key={index}>{pizza.name},{pizza.description}, {pizza.price}</p>
-                        <button onClick={() => dispatch({ type: 'ADD_PIZZA', payload: pizza })}>Add to Cart</button> <button onClick={() => dispatch({ type: 'REMOVE_PIZZA', payload: pizza })}>Remove from Cart</button>
-                    </>
-                )}
-
 
                 <div>
                     {pizzaList.map((pizza, index) =>
@@ -54,8 +46,6 @@ function PizzaList() {
                     )}
 
                     <h3><button>Next ➡️</button></h3>
-
-                </div>
             </div>
         </>
 
