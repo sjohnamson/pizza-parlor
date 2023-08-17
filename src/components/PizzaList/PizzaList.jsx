@@ -20,12 +20,12 @@ function PizzaList() {
     }
 
     const addPizza = (pizza) => {
-        // dispatch({ type: 'ADD_COST', payload: pizza.price });
+        dispatch({ type: 'ADD_COST', payload: pizza.price });
         dispatch({ type: 'ADD_PIZZA', payload: pizza })
     }
 
     const removePizza = (pizza) => {
-        // dispatch({ type: 'REMOVE_COST', payload: pizza.price });
+        dispatch({ type: 'REMOVE_COST', payload: pizza.price });
         dispatch({ type: 'REMOVE_PIZZA', payload: pizza })
     }
 
