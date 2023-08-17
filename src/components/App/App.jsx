@@ -5,8 +5,11 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
 
+import CheckoutPage from '../CheckoutPage/CheckoutPage';
+import CustomerForm from '../CustomerForm/CustomerForm';
+
 function App() {
-const [pizzaList, setPizzaList] = useState([]);
+
 
   return (
     <div className='App'>
@@ -19,8 +22,10 @@ const [pizzaList, setPizzaList] = useState([]);
 
       <PizzaList />
 
+      <CustomerForm />
     </div>
   );
 }
 
 export default App;
+
