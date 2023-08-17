@@ -19,6 +19,14 @@ function PizzaList() {
             })
     }
 
+const addPizza = (pizza) => {
+dispatch({type: 'ADD_PIZZA', payload: pizza.cost})
+}
+
+const removePizza = (pizza) => {
+    dispatch({type: 'REMOVE_PIZZA', payload: pizza.cost})
+}
+
     return (
         <>
             <h1>Select Your Pizzas!</h1>
@@ -31,6 +39,17 @@ function PizzaList() {
                     </>
                 )}
 
+
+        <div>
+            {pizzaList.map((pizza, index) => 
+                <>
+                    <p key={index}>{pizza.name},{pizza.description}, {pizza.price}</p>
+                    <button onClick={addPizza(pizza)} >
+                        Add to Cart
+                        </button> 
+                    <button onClick={removePizza(pizza)}>Remove from Cart</button>
+                </>
+            )}
 
                 <h3><button>Next ➡️</button></h3>
 
