@@ -22,12 +22,13 @@ const cart = (state = [], action) => {
 }
 
 const cartTotal = (state = 0, action) => {
-    if (action.type === "ADD_PRICE") {
+    if (action.type === "ADD_COST") {
         return state + action.payload
     }
-    if (action.type === "REMOVE_PRICE") {
+    if (action.type === "REMOVE_COST") {
         return state - action.payload
     }
+    return state
 }
 
 
