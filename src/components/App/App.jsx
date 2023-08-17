@@ -25,15 +25,20 @@ function App() {
     setType(event.target.value);
     console.log("Type after", type, "event.target.value", event.target.value)
   };
- 
-  
-  
-
-
 
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log("inside handleSubmit")
+    let newCustomerInfo = {
+      cusatomer_name: name,
+      street_address: streetAddress,
+      city: city,
+      zip: zip,
+      type: type
+    }
+    console.log(`Adding newCustomerInfo`, {name, streetAddress, city, zip, type})
+    dispatchEvent({type: "MAKE_CUSTOMER",
+  payload: newCustomerInfo})
   }
   
 
