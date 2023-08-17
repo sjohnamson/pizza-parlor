@@ -3,8 +3,8 @@ import axios from 'axios';
 import './App.css';
 import { useState, useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
+import CheckoutPage from '../CheckoutPage/CheckoutPage';
 import CustomerForm from '../CustomerForm/CustomerForm';
-
 
 function App() {
 
