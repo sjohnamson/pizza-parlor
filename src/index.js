@@ -12,6 +12,7 @@ const cart = (state = [], action) => {
         return state.filter(state => state !== action.payload);
     }
     if(action.type === "ADD_PIZZA"){
+        console.log("cart has recieved ADD_PIZZA payload", action.payload)
         return [...state, action.payload]
     }
     return state
