@@ -2,23 +2,12 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { useState, useEffect } from 'react';
+import PizzaList from '../PizzaList/PizzaList';
 
 
 function App() {
-  console.log("in appppppppp");
 
-  const [pizzaList, setPizzaList] = useState([])
-
-  useEffect(() => { fetchPizzas() }, [])
-
-  const fetchPizzas = () => {
-    axios.get('/api/pizza')
-      .then(response => {
-        setPizzaList(response.data)
-      }).catch((error) => {
-        console.log('fetch failed:', error);
-      })
-  }
+  
 
 
 
@@ -31,11 +20,7 @@ function App() {
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
 
-      <ul>
-        {pizzaList.map((pizza, index) =>
-          <li key={index}>{pizza.name}</li>
-        )}
-      </ul>
+      <PizzaList />
 
     </div>
   );
