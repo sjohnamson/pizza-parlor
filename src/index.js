@@ -23,10 +23,11 @@ const cart = (state = [], action) => {
 
 const cartTotal = (state = 0, action) => {
     if (action.type === "ADD_COST") {
-        return state + action.payload
+        console.log('in add cost', action.payload)
+        return state + Number(action.payload)
     }
     if (action.type === "REMOVE_COST") {
-        return state - action.payload
+        return state - Number(action.payload)
     }
     return state
 }
