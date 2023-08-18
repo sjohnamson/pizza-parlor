@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import { Link} from 'react-router-dom'
 
 function PizzaList() {
 
@@ -35,23 +36,20 @@ function PizzaList() {
         <>
             <h1>Select Your Pizzas!</h1>
             <hr />
-            <div>
-                {pizzaList.map((pizza, index) =>
-                    <>
-                        <p key={index}>
-                            {pizza.name},{pizza.description}, {pizza.price}
-                        </p>
-                        <button onClick={() => addPizza(pizza)} >
-                            Add to Cart
-                        </button>
-                        <button onClick={() => removePizza(pizza)}>
-                            Remove from Cart
-                        </button>
-                    </>
-                )}
-            </div>
-            <div>
-                <h3><button>Next ➡️</button></h3>
+
+                <div>
+                    {pizzaList.map((pizza, index) =>
+                        <>
+                            <p key={index}>{pizza.name},{pizza.description}, {pizza.price}</p>
+                            <button onClick={() => addPizza(pizza)} >
+                                Add to Cart
+                            </button>
+                            <button onClick={() => removePizza(pizza)}>Remove from Cart</button>
+                        </>
+                    )}
+
+                    <Link to="customerform"><h3><button>Next ➡️</button></h3></Link>
+
             </div>
         </>
 
