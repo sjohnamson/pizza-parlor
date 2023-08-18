@@ -1,8 +1,8 @@
 // import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom'
 
+import { useHistory } from 'react-router-dom'
 function CheckoutPage() {
 
     const customer = useSelector(store => store.currentCustomer)
@@ -76,7 +76,6 @@ function CheckoutPage() {
             </div>
 
             <h3><button onClick={handleCheckout}>CHECKOUT</button></h3>
-
 
         </>
     );
