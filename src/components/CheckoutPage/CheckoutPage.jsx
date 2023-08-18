@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function CheckoutPage() {
 
@@ -9,7 +9,10 @@ function CheckoutPage() {
     const cart = useSelector(store => store.cart)
     const cartTotal = useSelector(store => store.cartTotal)
 
-    console.log('in checkout', cartTotal)
+
+    console.log('in checkout customerDATA', customer)
+    console.log('in checkout customerNAMEDATA', customer.name)
+    console.log('in checkout currentCustomerSTOREDATA', (useSelector(store => store.currentCustomer)))
 
     const dispatch = useDispatch();
 
@@ -49,7 +52,7 @@ function CheckoutPage() {
             <table>
                 <thead>
                     <tr>
-                        <th>Pizza Type</th> <th>Price</th>
+                        <th>Pizza Type</th><th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,8 +71,8 @@ function CheckoutPage() {
             <div>
                 <h2>Total: {customer.total}</h2>
             </div>
-        <Link to="/">
-            <h3><button onClick={()=>handleCheckout()}>CHECKOUT</button></h3>
+            <Link to="/">
+                <h3><button onClick={() => handleCheckout()}>CHECKOUT</button></h3>
             </Link>
 
         </>
