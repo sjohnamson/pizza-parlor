@@ -11,9 +11,8 @@ import CustomerForm from '../CustomerForm/CustomerForm';
 function App() {
   return (
     <div className='App'>
-      <Header />
-
       <Router>
+        <Header />
         <img src='images/pizza_photo.png' />
         <p>Pizza is great.</p>
         <Route path='/' exact>
