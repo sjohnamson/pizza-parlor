@@ -8,7 +8,7 @@ import logger from 'redux-logger';
 
 const cart = (state = [], action) => {
     if(action.type === "REMOVE_PIZZA"){
-        console.log("cart has revieced REMOVE_PIZZA payload")
+        console.log("cart has revieced REMOVE_PIZZA payload" )
         return state.filter(state => state !== action.payload);
     }
     if(action.type === "ADD_PIZZA"){
@@ -32,13 +32,20 @@ const cartTotal = (state = 0, action) => {
     return state
 }
 
-
+const currentCustomer = (state = '', action) => {
+    if (action.type === 'MAKE_CUSTOMER') {
+        console.log('in current customer reducer: ', action.payload)
+        return action.payload
+    }
+    return state
+}
 
 
 const reduxStore = createStore(
     combineReducers({
         cart,
-        cartTotal
+        cartTotal,
+        currentCustomer,
         // reducers go here
     }),
     applyMiddleware(logger)
