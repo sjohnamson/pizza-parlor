@@ -33,6 +33,8 @@ const cartTotal = (state = 0, action) => {
 }
 
 
+
+
 const reduxStore = createStore(
     combineReducers({
         cart,

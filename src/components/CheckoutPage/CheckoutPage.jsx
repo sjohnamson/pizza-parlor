@@ -19,6 +19,7 @@ function CheckoutPage() {
         total: cartTotal.total,
         pizzas: cart.id
     }
+    console.log('in checkout', newOrder)
 
     const handleCheckout = () => {
         axios.post('/api/orders', newOrder)
