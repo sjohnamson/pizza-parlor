@@ -77,6 +77,7 @@ const handleSubmit = (event) => {
             <Link to="/checkoutpage">
   <button>Next➡️</button>
 </Link>
+
         </div>
     </form>;
 }

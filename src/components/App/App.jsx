@@ -28,10 +28,11 @@ function App() {
         </Route>
 
       <Route path='/checkoutpage'>
-        {/* <CheckoutPage/> */}
+        <CheckoutPage/>
       </Route>
 
       </Router>
+
     </div>
   );
 }

@@ -9,6 +9,8 @@ function CheckoutPage() {
     const cart = useSelector(store => store.cart)
     const cartTotal = useSelector(store => store.cartTotal)
 
+    console.log('in checkout', cartTotal)
+
     const dispatch = useDispatch();
 
     let newOrder = {
@@ -17,17 +19,18 @@ function CheckoutPage() {
         city: customer.city,
         zip: customer.zip,
         type: customer.type,
-        total: cartTotal.total,
-        pizzas: cart.id
+        total: cartTotal,
+        pizzas: cart[0].id
     }
+    console.log('in checkout', newOrder)
 
     const handleCheckout = () => {
         axios.post('/api/orders', newOrder)
-        .then(response => {
-            dispatch({type: 'CLEAR_ORDER'})
-        }).catch((error) => {
-            console.log('put failed:', error);
-        })
+            .then(response => {
+                dispatch({ type: 'CLEAR_ORDER' })
+            }).catch((error) => {
+                console.log('put failed:', error);
+            })
     }
 
     return (
@@ -56,19 +59,19 @@ function CheckoutPage() {
                                 {pizza.name}
                             </td>
                             <td>
-                                {pizza.cost}
+                                {pizza.price}
                             </td>
                         </tr>
                     )}
                 </tbody>
             </table>
-
             <div>
                 <h2>Total: {customer.total}</h2>
             </div>
         <Link to="/">
             <h3><button onClick={()=>handleCheckout()}>CHECKOUT</button></h3>
             </Link>
+
         </>
     );
 
