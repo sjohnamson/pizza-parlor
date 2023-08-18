@@ -2,8 +2,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
-import { Link } from 'react-router-dom'
-
+import { useHistory } from 'react-router-dom'
 function CheckoutPage() {
 
     const customer = useSelector(store => store.currentCustomer)
@@ -14,11 +13,11 @@ function CheckoutPage() {
     console.log('in checkout customerDATA', customer)
     console.log('in checkout customerNAMEDATA', customer.name)
 
-
+    const history = useHistory();
     const dispatch = useDispatch();
 
     let newOrder = {
-        customer_name: customer.name,
+        customer_name: customer.customer_name,
         street_address: customer.street_address,
         city: customer.city,
         zip: customer.zip,
@@ -29,12 +28,15 @@ function CheckoutPage() {
     console.log('in checkout', newOrder)
 
     const handleCheckout = () => {
+        const timeNow = new Date();
+        setSubmitTime(timeNow.toString());
         axios.post('/api/orders', newOrder)
             .then(response => {
                 dispatch({ type: 'CLEAR_ORDER' })
             }).catch((error) => {
                 console.log('put failed:', error);
             })
+        history.push('/')
     }
 
     return (
@@ -72,14 +74,8 @@ function CheckoutPage() {
             <div>
                 <h2>Total: {cartTotal}</h2>
             </div>
-            <p>CART TOTAL: {cartTotal}</p>
-            
-        <Link to="/">
-            <h3><button onClick={()=>handleCheckout()}>CHECKOUT</button></h3>
 
-            </Link>
-
-        
+            <h3><button onClick={handleCheckout}>CHECKOUT</button></h3>
 
         </>
     );
