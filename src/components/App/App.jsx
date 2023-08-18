@@ -1,8 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
-import { useState, useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
 import AdminTable from '../AdminTable/AdminTable';
 import Header from '../Header/Header';
@@ -11,8 +9,6 @@ import CheckoutPage from '../CheckoutPage/CheckoutPage';
 import CustomerForm from '../CustomerForm/CustomerForm';
 
 function App() {
-
-
   return (
     <div className='App'>
       <Header />

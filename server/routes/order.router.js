@@ -25,12 +25,13 @@ router.post('/', async (req, res) => {
             zip,
             type,
             total,
+            time,
             pizzas
         } = req.body;
         await client.query('BEGIN')
-        const orderInsertResults = await client.query(`INSERT INTO "orders" ("customer_name", "street_address", "city", "zip", "type", "total")
-        VALUES ($1, $2, $3, $4, $5, $6)
-        RETURNING id;`, [customer_name, street_address, city, zip, type, total]);
+        const orderInsertResults = await client.query(`INSERT INTO "orders" ("customer_name", "street_address", "city", "zip", "type", "total", "time")
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        RETURNING id;`, [customer_name, street_address, city, zip, type, total, time]);
         const orderId = orderInsertResults.rows[0].id;
 
         await Promise.all(pizzas.map(pizza => {

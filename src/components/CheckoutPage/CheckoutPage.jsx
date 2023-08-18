@@ -1,10 +1,12 @@
 // import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, } from 'react-redux';
 import axios from 'axios';
+import { useState } from 'react';
 
 import { useHistory } from 'react-router-dom'
 function CheckoutPage() {
 
+    const [submitTime, setSubmitTime] = useState('')
     const customer = useSelector(store => store.currentCustomer)
     const cart = useSelector(store => store.cart)
     const cartTotal = useSelector(store => store.cartTotal)
@@ -23,6 +25,7 @@ function CheckoutPage() {
         zip: customer.zip,
         type: customer.type,
         total: cartTotal,
+        time: submitTime,
         pizzas: cart[0].id
     }
     console.log('in checkout', newOrder)
@@ -30,6 +33,7 @@ function CheckoutPage() {
     const handleCheckout = () => {
         const timeNow = new Date();
         setSubmitTime(timeNow.toString());
+        console.log('submit time in handle checkout', submitTime)
         axios.post('/api/orders', newOrder)
             .then(response => {
                 dispatch({ type: 'CLEAR_ORDER' })
