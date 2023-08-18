@@ -21,15 +21,15 @@ function App() {
         <img src='images/pizza_photo.png' />
         <p>Pizza is great.</p>
         <Route path='/' exact>
-          <PizzaList  />
+          <PizzaList />
         </Route>
         <Route path='/customerform' exact>
           <CustomerForm />
         </Route>
 
-      <Route path='/checkoutpage'>
-        <CheckoutPage/>
-      </Route>
+        <Route path='/checkoutpage'>
+          <CheckoutPage />
+        </Route>
 
       </Router>
 
