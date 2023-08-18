@@ -48,7 +48,7 @@ const reduxStore = createStore(
         currentCustomer,
         // reducers go here
     }),
-    // applyMiddleware(logger)
+    applyMiddleware(logger)
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

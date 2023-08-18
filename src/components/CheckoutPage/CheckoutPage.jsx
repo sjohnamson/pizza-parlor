@@ -6,13 +6,13 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 function CheckoutPage() {
 
-    const [submitTime, setSubmitTime] = useState('')
+    const [submitTime, setSubmitTime] = useState([])
     const customer = useSelector(store => store.currentCustomer)
     const cart = useSelector(store => store.cart)
     const cartTotal = useSelector(store => store.cartTotal)
 
 
-    console.log('in checkout customerDATA', customer)
+    console.log('in checkout customerDATA', cart)
     console.log('in checkout customerNAMEDATA', customer.name)
 
     const history = useHistory();
@@ -26,15 +26,13 @@ function CheckoutPage() {
         type: customer.type,
         total: cartTotal,
         time: submitTime,
-        pizzas: cart[0].id
+        pizzas: cart
     }
     console.log('in checkout', newOrder)
 
     const handleCheckout = () => {
         const timeNow = new Date();
-        setSubmitTime(timeNow.toString());
-        console.log('submit time in handle checkout', submitTime)
-        axios.post('/api/orders', newOrder)
+        axios.post('/api/order', newOrder)
             .then(response => {
                 dispatch({ type: 'CLEAR_ORDER' })
             }).catch((error) => {
