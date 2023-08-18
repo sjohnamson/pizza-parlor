@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import PizzaList from '../PizzaList/PizzaList';
 
@@ -17,14 +17,22 @@ function App() {
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
 
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
+      <Router>
+        <img src='images/pizza_photo.png' />
+        <p>Pizza is great.</p>
+        <Route path='/' exact>
+          <PizzaList  />
+        </Route>
+        <Route path='/customerform' exact>
+          <CustomerForm />
+        </Route>
 
-      <PizzaList />
+      <Route path='/checkoutpage'>
+        <CheckoutPage/>
+      </Route>
 
-      <CustomerForm />
+      </Router>
 
-      <CheckoutPage />
     </div>
   );
 }

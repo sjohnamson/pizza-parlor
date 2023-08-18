@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 
 function CheckoutPage() {
 
@@ -67,8 +68,10 @@ function CheckoutPage() {
             <div>
                 <h2>Total: {customer.total}</h2>
             </div>
+        <Link to="/">
+            <h3><button onClick={()=>handleCheckout()}>CHECKOUT</button></h3>
+            </Link>
 
-            <h3><button onClick={() => handleCheckout()}>CHECKOUT</button></h3>
         </>
     );
 
