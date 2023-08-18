@@ -75,7 +75,6 @@ const handleSubmit = (event) => {
                     <FormControlLabel value="Delivery" control={<Radio />} label="Delivery" />
                 </RadioGroup>
             </FormControl>
-
         </div>
     </form>;
 }

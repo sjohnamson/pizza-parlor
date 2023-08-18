@@ -23,6 +23,8 @@ function App() {
       <PizzaList />
 
       <CustomerForm />
+
+      <CheckoutPage />
     </div>
   );
 }
