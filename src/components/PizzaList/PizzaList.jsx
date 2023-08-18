@@ -38,10 +38,10 @@ function PizzaList() {
                     {pizzaList.map((pizza, index) =>
                         <>
                             <p key={index}>{pizza.name},{pizza.description}, {pizza.price}</p>
-                            <button onClick={addPizza(pizza)} >
+                            <button onClick={()=>addPizza(pizza)} >
                                 Add to Cart
                             </button>
-                            <button onClick={removePizza(pizza)}>Remove from Cart</button>
+                            <button onClick={()=>removePizza(pizza)}>Remove from Cart</button>
                         </>
                     )}
 
