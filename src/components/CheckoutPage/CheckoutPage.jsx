@@ -70,7 +70,7 @@ function CheckoutPage() {
                 </tbody>
             </table>
             <div>
-                <h2>Total: {customer.total}</h2>
+                <h2>Total: {cartTotal}</h2>
             </div>
             <p>CART TOTAL: {cartTotal}</p>
             
