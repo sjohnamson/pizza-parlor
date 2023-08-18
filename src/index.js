@@ -7,15 +7,15 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 const cart = (state = [], action) => {
-    if(action.type === "REMOVE_PIZZA"){
-        console.log("cart has revieced REMOVE_PIZZA payload" )
+    if (action.type === "REMOVE_PIZZA") {
+        console.log("cart has revieced REMOVE_PIZZA payload")
         return state.filter(state => state !== action.payload);
     }
-    if(action.type === "ADD_PIZZA"){
+    if (action.type === "ADD_PIZZA") {
         console.log("cart has recieved ADD_PIZZA payload", action.payload)
         return [...state, action.payload]
     }
-    if(action.type === 'CLEAR_ORDER'){
+    if (action.type === 'CLEAR_ORDER') {
         return []
     }
     return state
@@ -32,7 +32,7 @@ const cartTotal = (state = 0, action) => {
     return state
 }
 
-const currentCustomer = (state = '', action) => {
+const currentCustomer = (state = {}, action) => {
     if (action.type === 'MAKE_CUSTOMER') {
         console.log('in current customer reducer: ', action.payload)
         return action.payload
@@ -48,7 +48,7 @@ const reduxStore = createStore(
         currentCustomer,
         // reducers go here
     }),
-    applyMiddleware(logger)
+    // applyMiddleware(logger)
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -12,7 +12,7 @@ function CheckoutPage() {
 
     console.log('in checkout customerDATA', customer)
     console.log('in checkout customerNAMEDATA', customer.name)
-    console.log('in checkout currentCustomerSTOREDATA', (useSelector(store => store.currentCustomer)))
+
 
     const dispatch = useDispatch();
 
