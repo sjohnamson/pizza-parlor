@@ -5,6 +5,7 @@ import { useState } from "react"
 function AdminTable() {
     const [orderList, setOrderList] = useState([]);
 
+    const getOrders = () => {
     axios
         .get('/api/orders')
         .then(response => {
@@ -13,6 +14,7 @@ function AdminTable() {
         .catch(error => {
             console.error('unable to retrieve order list, try again later', error)
         })
+    }
 
     return (
         <table>
