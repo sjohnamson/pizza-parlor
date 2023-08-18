@@ -5,6 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useState } from 'react';
+import {Link} from 'react-router-dom'
 
 function CustomerForm() {
 
@@ -38,8 +39,6 @@ const handleSubmit = (event) => {
       payload: newCustomerInfo
     })
   }
-
-
     return <form onSubmit={handleSubmit} className="add-customer-information-form">
         <input
             required
@@ -75,6 +74,9 @@ const handleSubmit = (event) => {
                     <FormControlLabel value="Delivery" control={<Radio />} label="Delivery" />
                 </RadioGroup>
             </FormControl>
+            <Link to="/checkoutpage">
+  <button>Next➡️</button>
+</Link>
 
         </div>
     </form>;
